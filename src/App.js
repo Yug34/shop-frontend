@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from "react";
 import './App.css';
+import ListProduct from "./pages/ListProducts";
+import CreateProduct from "./pages/CreateProduct";
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 function App() {
+  useEffect(() => {
+    fetch("http://localhost:3000/catalog/list")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router className="App">
+        <Switch>
+            <Route path="/">
+                <ListProduct/>
+            </Route>
+            <Route path="/create">
+                <CreateProduct/>
+            </Route>
+        </Switch>
+    </Router>
   );
 }
 
