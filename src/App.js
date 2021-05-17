@@ -11,24 +11,28 @@ import {
 } from "react-router-dom";
 
 function App() {
-  useEffect(() => {
-    fetch("http://localhost:3000/catalog/list")
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        });
-  }, []);
-
   return (
     <Router className="App">
-        <Switch>
-            <Route path="/">
-                <ListProduct/>
-            </Route>
-            <Route path="/create">
-                <CreateProduct/>
-            </Route>
-        </Switch>
+        <div>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">List</Link>
+                    </li>
+                    <li>
+                        <Link to="/create">Create</Link>
+                    </li>
+                </ul>
+            </nav>
+            <Switch>
+                <Route path="/create">
+                    <CreateProduct/>
+                </Route>
+                <Route path="/">
+                    <ListProduct/>
+                </Route>
+            </Switch>
+        </div>
     </Router>
   );
 }
