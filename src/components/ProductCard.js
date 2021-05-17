@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function ProductCard(props) {
     function addToCart() {
     //    TODO
     }
+
+    useEffect(() => {
+        console.log(props);
+    }, [props])
 
   return (
     <div className="App">
@@ -11,8 +15,9 @@ function ProductCard(props) {
       <div>{props.description}</div>
       <div>{props.price}</div>
       <div>{props.quantity}</div>
-
-        <button onClick={addToCart}>Add to cart</button>
+      {/*TODO*/}
+      {/*<img src={`data:${props.image.contentType};base64,${props.image.data.data.toString('base64')}`} />*/}
+      <button onClick={addToCart}>Add to cart</button>
     </div>
   );
 }
