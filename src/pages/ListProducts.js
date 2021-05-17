@@ -6,7 +6,7 @@ function ListProduct() {
   let [productCards, setProductCards] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/catalog/list")
+    fetch("http://localhost:6969/catalog/list")
       .then((res) => res.json())
       .then((data) => {
         setProductList(data);
