@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 function ListProduct() {
   let [productList, setProductList] = useState(null);
@@ -34,9 +35,10 @@ function ListProduct() {
 
   return (
     <div className="App">
-      <div className="productCardContainer">
-        {productList ? productCards : null}
-      </div>
+      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+        <h3 style={{ textAlign: "center" }}>All products:</h3>
+        <Masonry columnsCount={3}>{productList ? productCards : null}</Masonry>
+      </ResponsiveMasonry>
     </div>
   );
 }

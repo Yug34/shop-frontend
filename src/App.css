@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.productCard {
+  margin-bottom: 10px;
+}

@@ -19,25 +19,25 @@ function ProductCard(props) {
       return window.btoa(binary);
     }
 
-    setImgLink(
-      `data:${props.image.contentType};base64,${_arrayBufferToBase64(
-        props.image.data.data
-      )}`
-    );
+    setImgLink(`data:${props.image.contentType};base64,${_arrayBufferToBase64(props.image.data.data)}`);
   }, [props]);
 
+  useEffect(() => {
+      console.log(imgLink);
+  }, [imgLink]);
+
   return (
-    <div className="App">
+    <div className="productCard">
         <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={imgLink} />
             <div style={{position: "absolute", width: "fit-content", margin: "5px 0 0 10px", padding: "1px 3px 1px 3px", backgroundColor: "#65bb68", borderRadius: "10px"}}>₹{props.price}</div>
             <Card.Body>
                 <Card.Title>{props.name}</Card.Title>
                 <Card.Text>{props.description}</Card.Text>
+                <Card.Subtitle className="mb-2 text-muted">{props.quantity} left in stock</Card.Subtitle>
                 <Button variant="primary" onClick={addToCart}>Add to cart</Button>
             </Card.Body>
         </Card>
-      {/*<div>{props.quantity}</div>*/}
     </div>
   );
 }
