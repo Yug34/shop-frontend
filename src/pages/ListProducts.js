@@ -37,7 +37,7 @@ function ListProduct() {
     <div className="App">
       <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
         <h3 style={{ textAlign: "center" }}>All products:</h3>
-        <Masonry columnsCount={3}>{productList ? productCards : null}</Masonry>
+        <Masonry columnsCount={3} gutter="0">{productList ? productCards : null}</Masonry>
       </ResponsiveMasonry>
     </div>
   );

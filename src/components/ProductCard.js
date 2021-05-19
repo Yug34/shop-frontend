@@ -27,7 +27,7 @@ function ProductCard(props) {
   }, [imgLink]);
 
   return (
-    <div className="productCard">
+    <div className="productCard" style={{ display: "inline-block" }}>
         <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={imgLink} />
             <div style={{position: "absolute", width: "fit-content", margin: "5px 0 0 10px", padding: "1px 3px 1px 3px", backgroundColor: "#65bb68", borderRadius: "10px"}}>₹{props.price}</div>
