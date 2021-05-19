@@ -1,5 +1,5 @@
 import React from "react";
-import {Form, Button, Row, Col} from "react-bootstrap";
+import {Form, Button, Row, Col, FormLabel} from "react-bootstrap";
 
 function CreateProduct() {
   return (
@@ -31,38 +31,41 @@ function CreateProduct() {
       </Form.Group>
       <Row>
         <Col>
-            <Form.Label>Quantity</Form.Label>
-            <Form.Control
-                type="number"
-                name="quantity"
-                placeholder="Enter quantity"
-                id="quantity"
-                required={true}
-            />
+          <Form.Label>Quantity</Form.Label>
+          <Form.Control
+            type="number"
+            name="quantity"
+            placeholder="Enter quantity"
+            id="quantity"
+            required={true}
+          />
         </Col>
         <Col>
-            <Form.Label>Price</Form.Label>
-            <Form.Control
-                type="number"
-                id="price"
-                name="price"
-                placeholder="Enter unit price"
-                required={true}
-            />
+          <Form.Label>Price</Form.Label>
+          <Form.Control
+            type="number"
+            id="price"
+            name="price"
+            placeholder="Enter unit price"
+            required={true}
+          />
         </Col>
-
-
       </Row>
-      <Form.Group>
+      <hr/>
+      <Form.Group style={{ textAlign: "center" }}>
+        <FormLabel>Product Image</FormLabel>
         <Form.File
           id="image"
           type="file"
           name="image"
-          label="Upload Image"
+          // label="Product image:"
           required={true}
         />
       </Form.Group>
-      <Button type="submit" style={{width: "20%", marginLeft: "40%"}}>Submit</Button>
+      <hr/>
+      <Button type="submit" style={{ width: "20%", marginLeft: "40%" }}>
+        Submit
+      </Button>
     </Form>
   );
 }

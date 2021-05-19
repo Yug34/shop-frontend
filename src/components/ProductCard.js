@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {Card, Button} from "react-bootstrap";
 
 function ProductCard(props) {
   let [imgLink, setImgLink] = useState(null);
@@ -27,16 +28,16 @@ function ProductCard(props) {
 
   return (
     <div className="App">
-      <div>{props.name}</div>
-      <div>{props.description}</div>
-      <div>{props.price}</div>
-      <div>{props.quantity}</div>
-      <img
-        src={imgLink}
-        alt={props.name}
-        style={{ width: "150px", height: "150px" }}
-      />
-      <button onClick={addToCart}>Add to cart</button>
+        <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={imgLink} />
+            <div style={{position: "absolute", width: "fit-content", margin: "5px 0 0 10px", padding: "1px 3px 1px 3px", backgroundColor: "#65bb68", borderRadius: "10px"}}>₹{props.price}</div>
+            <Card.Body>
+                <Card.Title>{props.name}</Card.Title>
+                <Card.Text>{props.description}</Card.Text>
+                <Button variant="primary" onClick={addToCart}>Add to cart</Button>
+            </Card.Body>
+        </Card>
+      {/*<div>{props.quantity}</div>*/}
     </div>
   );
 }
