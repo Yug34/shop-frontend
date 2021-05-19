@@ -10,6 +10,7 @@ function ListProduct() {
       .then((res) => res.json())
       .then((data) => {
         setProductList(data);
+        console.log(data);
       });
   }, []);
 
