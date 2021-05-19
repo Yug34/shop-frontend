@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ListProduct from "./pages/ListProducts";
 import CreateProduct from "./pages/CreateProduct";
-
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {Nav, Navbar} from "react-bootstrap";
 
 function App() {
   return (
     <Router className="App">
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">List</Link>
-            </li>
-            <li>
-              <Link to="/create">Create</Link>
-            </li>
-          </ul>
-        </nav>
+        <Navbar bg="light" expand="lg">
+          <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="/">List all products</Nav.Link>
+              <Nav.Link href="/create">Create product</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
         <Switch>
           <Route path="/create">
             <CreateProduct />
