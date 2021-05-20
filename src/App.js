@@ -24,7 +24,7 @@ function App() {
           <Route path="/create">
             <CreateProduct />
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
             <ListProduct />
           </Route>
         </Switch>

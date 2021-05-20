@@ -8,6 +8,11 @@ function ProductCard(props) {
     //    TODO
   }
 
+  function deleteFromDb(id) {
+    fetch(`http://localhost:6969/catalog/display/${id}`, { method: 'DELETE' })
+      .then(window.location.reload());
+  }
+
   useEffect(() => {
     function _arrayBufferToBase64(buffer) {
       let binary = "";
@@ -22,10 +27,6 @@ function ProductCard(props) {
     setImgLink(`data:${props.image.contentType};base64,${_arrayBufferToBase64(props.image.data.data)}`);
   }, [props]);
 
-  useEffect(() => {
-      console.log(imgLink);
-  }, [imgLink]);
-
   return (
     <div className="productCard" style={{ display: "inline-block" }}>
         <Card style={{ width: '18rem' }}>
@@ -36,6 +37,7 @@ function ProductCard(props) {
                 <Card.Text>{props.description}</Card.Text>
                 <Card.Subtitle className="mb-2 text-muted">{props.quantity} left in stock</Card.Subtitle>
                 <Button variant="primary" onClick={addToCart}>Add to cart</Button>
+                <Button variant="danger" onClick={() => {deleteFromDb(props.id)}}>Delete product</Button>
             </Card.Body>
         </Card>
     </div>
